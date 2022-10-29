@@ -1,67 +1,87 @@
-// Continue from yesterday with Control Flow
-// The Switch case statement
 
-let day = new Date().getDay();
+//! ARRAYS
 
-let literal_day = new Date().toString();
+// create an array 
+let group_of_names = ['jerry','Ben', 'bAsh', 'Brock', 'Misty']
 
-console.log(day)
-console.log(literal_day)
+// Index for first position
+console.log(group_of_names[0])
 
-// Switch Case Statement Syntax
-switch(day){
-    case 0:
-        console.log('Go to church');
-        break;
-    case 1:
-        console.log("Write code...it's Monday!!")
-        break;
-    case 2:
-        console.log("Test Code...it's Tuesday!!")
-        break;
-    case 3:
-        console.log("Testing more code on Wed")
-        break;
-    case 4:
-        console.log("Write a feature for project on Thurs")
-        break;
-    case 5:
-        console.log("Testing Feature on Friday")
-        break;
-    case 6:
-        console.log('Rest on Sat')
-        break;
-    default:
-        console.log("We don't have a case to handle that")
+// Deconstruction
+let terry, ben, misty;
+[terry, misty, ben] = group_of_names
+console.log(terry,ben,misty)
+
+// Method 1 for looping through an array 
+function show_all_names(){
+    for(let i = 0; i < group_of_names.length; i++){
+        console.log(group_of_names[i])
+    }
+    return 'done'
 }
 
+console.log(show_all_names())
 
-// Literal Day Example with Switch Case Syntax
-switch(literal_day.split(" ")[0]){
-    case'Sun':
-        console.log('Go to church');
-        break;
-    case'Mon':
-        console.log("Write code...it's Monday!!")
-        break;
-    case'Tue':
-        console.log("Test Code...it's Tuesday!!")
-        break;
-    case 'Wed':
-        console.log("Testing more code on Wed")
-        break;
-    case 'Thurs':
-        console.log("Write a feature for project on Thurs")
-        break;
-    case 'Fri':
-        console.log("Testing Feature on Friday")
-        break;
-    case 'Sat':
-        console.log('Rest on Sat')
-        break;
-    default:
-        console.log("We don't have a case to handle that")
+// method 2
+console.log(group_of_names.forEach(element => console.log(element)
+))
+
+// JS Array method: array.toString()
+console.log(group_of_names.toString())
+console.log(typeof(group_of_names.toString()))
+
+
+//! Put these in advanced and higher-order doc
+//  JS Array methods: .map(), .filter(), .reduce()
+
+//  .map()
+let b_names = group_of_names.map( i => {
+    if (i[0] == 'B'){
+        return i
+    } else {
+        return false
+    }
+})
+
+// long form of .map()
+let b_names_test = function (){
+    let test_array = [];
+    for(let i = 0; i < group_of_names.length; i++){
+        if(group_of_names[i][0] == 'B'){
+            test_array.push(group_of_names[i])
+        }
+    }
+    return test_array
 }
+
+console.log(b_names_test())
+
+// .filter()
+let long_names = group_of_names.filter( element => element.length > 4)
+console.log(long_names)
+
+// .reduce()
+
+const nums = [2,4,6,8,10]
+
+let nums_reduced = nums.reduce( (accumulator, current_num) => {
+    return accumulator + current_num
+})
+
+// you can also use .join .slice .search and .splice
+
+
+// TODO - place in appropriate locations
+// Array variable
+var some_array = [1,2,3,4];
+console.log(some_array)
+//! Make sure .includes() is covered
+
+//object variable
+//! Will be in next video document
+var some_object = {'test': 'Please test me!'};
+console.log(some_object)
+
 
 // -- Creation of Objects in JavaScript
 // -- Simple JavaScript Object --

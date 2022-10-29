@@ -34,48 +34,78 @@ Invoke it's name to access the value (called a binding). (Or invoke the address 
 /*
 Comments?
 Data Types!!!
-Numbers
-How decimals work
-Arithmetic operations
-Pemdas
-NaN; Infinity
-Strings
-Discuss unicode vs ASCII
-' " `
-Escape characters
-" \" "
-//! use book for some of these
-Concatenation
-Template literals with backticks ${}
-Booleans
-comparisons 
-Basic boolean logic
-Logical Operators (&& and ||)
-Null and undefined
-Type conversions… automatic!
-8 * null
-"5" - 1
-"5" + 1
-"five" * 2
-false == 0
-NaN operations return more NaN answers
-null == undefined
-null == 0
-Can get away from these issues with === and !== for precision equality
-console.log("Michael" || "user") => "Michael"
-"short circuit evaluation"
+    //! Numbers
+        How decimals work
+        Arithmetic operations
+
+    Basic Math operations
 */
 
-// String variable 
+            // //Addition 
+            // let sum = 5 + 5
+            // console.log(sum)
+            //! Check this against Python monday notes
+
+            // // Subtraction
+            // let diff = 5 - 4
+
+            // // multiplication and division same as python basically
+
+            // // exponential also 
+
 
 /*
-Cannot start with a digit (can have later)
-$ or _ ok, no other punctuation
-Look out for keywords:
-break case catch class const continue debugger default delete do else enum exports extends false……..
+         Pemdas
+        NaN; Infinity
+    //! Strings
+        Discuss unicode vs ASCII
+        ' " `
+        Escape characters
+        " \" "
+//! use book for some of these
+        Concatenation
+        Template literals with backticks ${}
+        Rules for writing strings - 
+            Cannot start with a digit (can have later)
+            $ or _ ok, no other punctuation
+            Look out for keywords:
+                break case catch class const continue debugger default delete do else enum exports extends false……..
+    Booleans
+        comparisons 
+        Basic boolean logic
+        Logical Operators (&& and ||)
+    Null and undefined
+    Type conversions… automatic!
+        8 * null
+        "5" - 1
+        "5" + 1
+        "five" * 2
+        false == 0
+        NaN operations return more NaN answers
+        null == undefined
+        null == 0
+        Can get away from these issues with === and !== for precision equality
+        console.log("Michael" || "user") => "Michael"
+        "short circuit evaluation"
 */
 
-// Environment: Collection of bindings and their values; includes standard language library
+//! Expressions
+1;
+!false;
+
+//! Bindings
+
+// Bindings
+let ten = 10;
+// IMAGINE BINDINGS AS TENTACLES RATHER THAN BOXES. A PROGRAM CAN ONLY ACCESS VALUES IT HAS ACCESS TO.
+var ada_name = "Ada"; 
+const greeting = "Hello "; 
+console.log(greeting + ada_name);
+// var is oldest way of declaring. Let should be used instead.
+// const is short for constant; permanent binding
+// You can declare a binding or variable without giving it a value
+let house;
+
 
 // Binding cases
 // camelCase
@@ -85,9 +115,9 @@ break case catch class const continue debugger default delete do else enum expor
 // Sometimes we will see capital letters at the front - this has special meaning we will get to Later
 
 
-var first_name = 'Zack'
+var first_name = 'Zack';
 
-// Display value in JS
+// Environment: Collection of bindings and their values; includes standard language library
 
 /*
 Functions
@@ -95,6 +125,9 @@ Many values in the default environment are function data types. Functions are co
 You can think of it as a machine
 Executing a function is called 'invoking' calling or applying
 Sometimes functions take data in and do stuff to them; that data is called an argument
+    You can think of it as a machine
+    Executing a function is called 'invoking' calling or applying
+    Sometimes functions take data in and do stuff to them; that data is called an argument
 
 Returning values
 Side effects vs returning things
@@ -116,6 +149,7 @@ console.log(some_float)
 
 
 //* Difference between returning and side effects of functions
+Math.max(2, 4);
 console.log(Math.max(2, 4));
 console.log(Math.min(2, 4) + 100);
 //* We will spend a lot of time with functions so don't worry yet
@@ -124,7 +158,7 @@ console.log(Math.min(2, 4) + 100);
 
 // javascript hoisting 
 //* and control flow
-// TODO - review hoisting
+//* Can declare a variable after it's been used; JS's compiler will move declarations to the top of the binary
 a_num = 10
 console.log(a_num)
 var a_num
@@ -144,6 +178,8 @@ Conditional Execution
     if else if else
     use let number = 10 and then if conditions to filter the number
 
+    //! DRAW CONTROL FLOW DIAGRAMS
+    straight line, fork, loop
 */
 if (age < 18){
     console.log('Minor')
@@ -168,20 +204,13 @@ console.log(super_hero)
 // super_hero = 'Batman'
 // won't work
 
+//! IN CLASS EXERCISE
+//* Assign a binding to a number
+//* Use JS to check if the number is greater than 100
+
 /*
-    Basic Math operations
+    More Math operations
 */
-
-//Addition 
-let sum = 5 + 5
-console.log(sum)
-
-// Subtraction
-let diff = 5 - 4
-
-// multiplication and division same as python basically
-
-// exponential also 
 
 // More math ops
 // Finding Floor of a decimal
@@ -220,8 +249,15 @@ console.log(nba_goat)
 //! Review Python!!!!
 //! Steal code from page 30?
 
+// basic while loop
+let my_num = 0;
+while (my_num <= 10){
+    console.log(my_num);
+    my_num += 2;
+}
+
 // basic for loop
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) { // be sure to note the ++
     console.log("This is a loop: " + i)
 }
 
@@ -229,18 +265,94 @@ for (let i = 0; i < 5; i++) {
 // (it won't break your computer unless you're using an IBM 1401)
 // While loops vs do while loops
 
+// Indentation and JS Code Styling
+https://google.github.io/styleguide/jsguide.html#formatting
+
+
 let num = 0
 while (num < 10) {
     if (num < 3){
-        console.log('small')
-    } else if (age >= 3 && age < 7){
+        console.log('small');
+    } else if (num >= 3 && num < 7){
         console.log('medium')
-    // } else if (age == 8) {
-    //     break // stops the loop completely
+    } else if (num == 8) {
+        console.log('Broke!')
+        break // stops the loop completely
+        // continue // skips to next iteration
     } else {
         console.log('large')
     };
+    num += 1; // Comment this out, and break the browser! Yay! Also note += 
 }
+
+// The Switch case statement
+
+let day = new Date().getDay();
+let literal_day = new Date().toString(); // Don't worry about these; could also just assign day
+
+console.log(day)
+console.log(literal_day)
+
+// Switch Case Statement Syntax
+switch(day){
+    case 0:
+        console.log('Go to church');
+        break;
+    case 1:
+        console.log("Write code...it's Monday!!")
+        break;
+    case 2:
+        console.log("Test Code...it's Tuesday!!")
+        break;
+    case 3:
+        console.log("Testing more code on Wed")
+        break;
+    case 4:
+        console.log("Write a feature for project on Thurs")
+        break;
+    case 5:
+        console.log("Testing Feature on Friday")
+        break;
+    case 6:
+        console.log('Rest on Sat')
+        break;
+    default:
+        console.log("We don't have a case to handle that")
+}
+
+
+// Literal Day Example with Switch Case Syntax
+switch(literal_day.split(" ")[0]){
+    case'Sun':
+        console.log('Go to church');
+        break;
+    case'Mon':
+        console.log("Write code...it's Monday!!")
+        break;
+    case'Tue':
+        console.log("Test Code...it's Tuesday!!")
+        break;
+    case 'Wed':
+        console.log("Testing more code on Wed")
+        break;
+    case 'Thurs':
+        console.log("Write a feature for project on Thurs")
+        break;
+    case 'Fri':
+        console.log("Testing Feature on Friday")
+        break;
+    case 'Sat':
+        console.log('Rest on Sat')
+        break;
+    default:
+        console.log("We don't have a case to handle that")
+}
+
+//! Exercises:
+// Loop a triangle (mario problem)
+// FizzBuzz
+// ChessBoard printout
+
 
 //! FUNCTIONS
 // User-written functions exist for processes that don't exist already
@@ -262,6 +374,7 @@ console.log(square(12));
 //! these get used either way but I want students to think differently about them
 
 // Regular named functions 
+//* Use Python Tutor to show what's going on
 function addNums() {
     let num = 4;
     let num2 = 5;
@@ -272,24 +385,25 @@ function addNums() {
 console.log(addNums())
 
 // Bindings and Scope (Mini environments!!)
-// global vs local
-// BAD CODE EXAMPLE
-// 'block'
-// Scope can 'look out'
-// Nested scope (local in local) also called 'lexical scoping'
-// Overwriting bindings
-// There are several ways of writing functions in JS
-let x = 5
+    // global vs local
+    // BAD CODE EXAMPLE
+    // 'block'
+    // Scope can 'look out'
+    // Nested scope (local in local) also called 'lexical scoping'
+        // Overwriting bindings
+        // There are several ways of writing functions in JS
+// let x = 5
 
-function myFunc(x) {
-    let x = 7
-    return x + 2
-}
+// function myFunc(x) {
+//     let x = 7
+//     return x + 2
+// }
 
-console.log(myFunc(x))
+// console.log(myFunc(x))
 // Nobody has a clue what is going to get printed out!!! There's a right answer 
 // but this is
 //! BAD CODE 
+// Also note that overwriting function bindings is a BAD idea
 
 // Variable named function with parameters
 let addNums2 = function(num, num2){
@@ -304,6 +418,8 @@ function addNums3(x,y){
 }
 
 console.log(addNums3(6,7))
+
+
 
 console.log("The future says:", future());
 
@@ -335,17 +451,18 @@ console.log(cubed2(4))
 let toThePower = (num,power) => {
     return num ** power
 }
+
+console.log(toThePower(4,3))
 // Recommend using const for these so the function can't get deleted... causes big problems!
 // Optional Arguments
-function square(x) { return x * x }
-square(4, true, "hedgehog")
+function extra_square(x) { return x * x }
+extra_square(4, true, "hedgehog")
 
 // No error here
 // "JavaScript is extremely broad-minded about the number of arguments 
 // you pass to a function. If you pass too many, the extra ones are ignored. 
 // If you pass too few, the missing parameters get assigned the value undefined." -47
 
-console.log(toThePower(4,3))
 
 console.log((function(name){
     let hello = 'Hello ' + name;
@@ -353,7 +470,7 @@ console.log((function(name){
 })('Joel'))
 // Not very common
 
-// JavaScript Control Flow 
+// JavaScript Control Flow, continued
 // if statements
 
 function determineAge(age){
@@ -424,84 +541,3 @@ console.log(count_with_do_while())
 
 
 
-
-
-// create an array 
-let group_of_names = ['jerry','Ben', 'bAsh', 'Brock', 'Misty']
-
-// Index for first position
-console.log(group_of_names[0])
-
-// Deconstruction
-let terry, ben, misty;
-[terry, misty, ben] = group_of_names
-console.log(terry,ben,misty)
-
-// Method 1 for looping through an array 
-function show_all_names(){
-    for(let i = 0; i < group_of_names.length; i++){
-        console.log(group_of_names[i])
-    }
-    return 'done'
-}
-
-console.log(show_all_names())
-
-// method 2
-console.log(group_of_names.forEach(element => console.log(element)
-))
-
-// JS Array method: array.toString()
-console.log(group_of_names.toString())
-console.log(typeof(group_of_names.toString()))
-
-
-//! Put these in advanced and higher-order doc
-//  JS Array methods: .map(), .filter(), .reduce()
-
-//  .map()
-let b_names = group_of_names.map( i => {
-    if (i[0] == 'B'){
-        return i
-    } else {
-        return false
-    }
-})
-
-// long form of .map()
-let b_names_test = function (){
-    let test_array = [];
-    for(let i = 0; i < group_of_names.length; i++){
-        if(group_of_names[i][0] == 'B'){
-            test_array.push(group_of_names[i])
-        }
-    }
-    return test_array
-}
-
-console.log(b_names_test())
-
-// .filter()
-let long_names = group_of_names.filter( element => element.length > 4)
-console.log(long_names)
-
-// .reduce()
-
-const nums = [2,4,6,8,10]
-
-let nums_reduced = nums.reduce( (accumulator, current_num) => {
-    return accumulator + current_num
-})
-
-// you can also use .join .slice .search and .splice
-
-
-// TODO - place in appropriate locations
-// Array variable
-var some_array = [1,2,3,4];
-console.log(some_array)
-
-//object variable
-//! Will be in next video document
-var some_object = {'test': 'Please test me!'};
-console.log(some_object)
