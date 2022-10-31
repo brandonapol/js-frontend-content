@@ -1,4 +1,3 @@
-//! Put these in advanced and higher-order doc
 //  JS Array methods: .map(), .filter(), .reduce()
 
 // Higher-Order Functions
@@ -162,3 +161,5 @@ const recursiveFactorial = (n, accumulator) => {
 }
 
 console.log(factorial(5))
+
+//! HW: Fibonacci 

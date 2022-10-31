@@ -317,6 +317,36 @@ console.log(my_car.printInfo(4, 'Gun Metal'))
 
 // -- JavaScript Classes -- //
 
+// More Objects
+    // Classes
+        // Methods
+        // State
+        // Four pillars of OOP: Encapsulation, abstraction, polymorphism, inheritance
+        // Encapsulation
+            // Interfaces
+            // Public vs private state
+        // Thinking of objects as… objects
+            // You can just like, add more detail as you go
+            // p. 98
+            // this keyword
+        // Prototypes
+            // Classes
+            // Constructors & Prototypes
+            // this keyword
+// Constructors are capitalized
+//Polymorphism
+// Code works on any code that supports the expected interface
+// Inheritance
+//     extends etc
+//     Based on some other class rather than the Object prototype!!!
+//     Superclass vs subclass
+//     super keyword calls the superclass's constructor, has it's own constructor for the subclass
+//     can also use super to call method from superclass's method class, as opposed to this.set which would call the subclass's setter method
+//     Creates more tangle! Is opposite of abstraction, but is quicker
+
+
+
+
 class Human{
     constructor(name, age, gender){
         this.age = age;
@@ -359,6 +389,32 @@ console.log(johnnie.printInfo())
 console.log(johnnie.isBabywalking())
 
 
+// Bugs and Errors
+// 'JavaScript's looseness is a hindrance'
+// Strict mode
+// Types
+// Type-checking version of JS is TypeScript
+// Tests
+// Debugging steps
+// Breakpoints and debuggers
+// Try - Catch
+// Assertions
+
+let input = 'howdy'
+
+const num_filter = (num) => {
+    try {
+        if (num > 5){
+            console.log('larger than 5');
+        } else {
+            console.log('smaller than 5')
+        }
+    } catch {
+        console.log('that is not a number')
+    }
+}
+
+console.log(num_filter(input))
 
 // Async JavaScript Section //
 
