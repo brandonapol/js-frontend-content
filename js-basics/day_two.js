@@ -1,11 +1,155 @@
+// TODO Closures
+// TODO Recursion
+
+// Arrays
+// Prototypes
+// Objects
+// Closures
+// Higher Order Functions
+
+// -- JavaScript Closure -- //
+/*
+
+    "A closure is the combination of a function bundled together (enclosed) 
+    with references to its surrounding state (the lexical environment). 
+    In other words, a closure gives you access to an outer function's scope 
+    from an inner function. In JavaScript, closures are created every time a 
+    function is created, at function creation time."
+
+    A Closure is a self-invoking function that only runs once.
+    It can then set a variable(Which in our case will be a counter) and 
+    returns a function expression.
+
+    For this example, we will add to a number after the inital call to the closure has been made.
+
+    BTW JavaScript Closures are another type of variable that can be created.
+
+    Closures
+        You can bind functions inside of other functions, and they'll only be available within the first function
+        This gets MUCH more useful when we're doing web development
+        Is a way of 'saving' values in functions
+            Has to do with stack heap etc; review Fireship video on closures
+        "it saves it but doesn't do anything observable yet" - returning a return statement
+
+
+*/
+
+
+
+var my_num = 5
+
+var addNums = function () {
+    var insideNum = 6;
+    return my_num + insideNum;
+};
+
+console.dir(addNums) // Won't call itself a closure just yet but we're in the right direction
+
+let newAdd = function(outer_var){
+
+    let innerAdd = function(inner_var){
+        return outer_var + inner_var;
+    };
+
+    return innerAdd;
+};
+
+let addFive = new newAdd(5);
+let addSix = new newAdd(6);
+
+console.dir(newAdd);
+console.dir(addFive); // Scopes includes a closure 
+console.dir(addSix);
+
+console.log(addFive(3))
+
+
+let count_up =  function() {
+    let counter = 0; // This will be our PRIVATE variable
+    console.log('Hit')
+    return function () { return counter++}
+}
+
+count_up()
+count_up()
+count_up()
+console.dir(count_up())
+// Can't see the counter, but the counter DOES exist
+// The scopes closure only sees what the anonymous function sees
+
+let addNames = ( function () {
+    let names = [];
+    console.log('Adding Names')
+    return function (name){
+        console.log(names)
+        return names.push(name)
+    }
+})() // we'll come back to this later
+
+console.log(addNames('Brandon'))
+console.log(addNames('Lydia'))
+console.log(addNames('Joel')) // We'll get to more of what this means in a little bit
+
+// Recursion
+// p50
+// Use recursion to show an exponent function vs a regular way of declaring it
+// We'll review Closures and Recursion in later sections
+// Elegant Code and refactoring functions
+// Don't add cleverness until you're absolutely sure you'll need it
+// Functions and Side Effects
+// Pure functions
+// 'helper functions' just as a vocab term
+// Side effects vs return value functions
+// Good HW assignments here
+
+function getFactorialWhileLoop(n){
+    let result = 1;
+    while (n > 1) {
+        result = result * n;
+        n -= 1;
+    }
+    return result;
+}
+
+console.log(getFactorialWhileLoop(5));
+
+function getFactorialRecursively(n){
+    if (n <= 1){
+        return 1;
+    }
+    else{
+        return n * getFactorialRecursively(n-1);
+    }
+}
+
+console.log(getFactorialRecursively(5));
+
+// Objects and Arrays
+// 'data sets'
+// How data is stored in computer memory
+// How arrays are stored in computer memory
+// How we access a specific location of a data set
+// dots vs []; null.length 'has no properties'
+
 
 //! ARRAYS
 
 // create an array 
 let group_of_names = ['jerry','Ben', 'bAsh', 'Brock', 'Misty']
 
+// So we have a series of strings in computer memory somewhere...
+// What if I want to get back just one of those values?
+// What is the mailing address?
 // Index for first position
+console.log('Brandon is here')
+console.log(group_of_names["jerry"]) // Doesn't work, doesn't make sense here
 console.log(group_of_names[0])
+
+// todo - find arr exercises from python
+
+//* Array methods: arr.toString(), arr.join(' '), arr.pop(), arr.push(val), arr.shift() [removes first element & returns it],
+//* arr.unshift(),  delete arr[0] [replaces val with undefined], arr1.concat(arr2, arr3)
+//* No min or max functions; sort and then pop or shift
 
 // Deconstruction
 let terry, ben, misty;
@@ -31,59 +175,40 @@ console.log(group_of_names.toString())
 console.log(typeof(group_of_names.toString()))
 
 
-//! Put these in advanced and higher-order doc
-//  JS Array methods: .map(), .filter(), .reduce()
-
-//  .map()
-let b_names = group_of_names.map( i => {
-    if (i[0] == 'B'){
-        return i
-    } else {
-        return false
-    }
-})
-
-// long form of .map()
-let b_names_test = function (){
-    let test_array = [];
-    for(let i = 0; i < group_of_names.length; i++){
-        if(group_of_names[i][0] == 'B'){
-            test_array.push(group_of_names[i])
-        }
-    }
-    return test_array
-}
-
-console.log(b_names_test())
-
-// .filter()
-let long_names = group_of_names.filter( element => element.length > 4)
-console.log(long_names)
-
-// .reduce()
-
-const nums = [2,4,6,8,10]
-
-let nums_reduced = nums.reduce( (accumulator, current_num) => {
-    return accumulator + current_num
-})
-
-// you can also use .join .slice .search and .splice
-
-
 // TODO - place in appropriate locations
 // Array variable
 var some_array = [1,2,3,4];
-console.log(some_array)
-//! Make sure .includes() is covered
+
+console.log(some_array["length"])
+console.log(some_array.length)
+// console.log(some_array.length())
+console.log([1,2,'apple',4].includes('apple'))
+console.log('apple'.includes('a')) // strings are technically arrays under the hood
+let new_arr = [1,2,3,[4,'guacamole','dogs']]
+console.log(new_arr[3][1])
 
 //object variable
-//! Will be in next video document
+
+//! OBJECTS 
+
 var some_object = {'test': 'Please test me!'};
 console.log(some_object)
 
 
 // -- Creation of Objects in JavaScript
+
+// Object types
+    // Arbitrary groupings of attributes
+        // Uses {} (like python dict)
+        // Difference between 'expression' and 'object' declarations with {}
+        // using delete
+        // keys and values as keys to lockers and their content
+        // What's going on under the hood with keys and values?
+        // .keys
+        // .assign() 
+        // Arrays are just objects specialized for storing sequences of things
+
+
 // -- Simple JavaScript Object --
 
 let person = {
@@ -95,6 +220,8 @@ let person = {
 // Accessing Data in our Object
 console.log(person['name']) // Bracket Notation
 console.log(person.name) // Dot Notation
+console.log(Object.keys(person)) // returns array of keys
+console.log(Object.assign(person, {hometown: "chicago"}))
 
 // -- Complex JavaScript Object
 let person2 = {
@@ -143,6 +270,27 @@ for(let i = 0; i < Object.keys(person2).length; i++){
     }
 }
 
+// [] + []
+
+// [] + {}
+
+// {} +[]
+
+// {} + {}
+
+// Array(16)
+
+// Array(16).join('js is weird' + 1)
+
+// Mutability - Objects are mutable; Arrays are mutable, but array prototypes are not (strings for example)
+
+// There are a few more array methods - see EJS for more, or research W3 array methods
+
+// Math object: keys are names, values are functions / mathematical values
+// Seen this before; Math.max(), Math.floor() etc
+
+// JSON is in the book, we will take time to learn to mess with JSON later
+
 // Create our own Object Prototypes -- with ES5 Method Syntax
 function Car(make,model,year){
     this.make = make;
@@ -157,6 +305,8 @@ function Car(make,model,year){
         return 'Returned Value'
     }
 }
+
+
 
 // Creating an instance of a prototype
 let my_car = new Car('Honda', 'CR-V', 2019)
@@ -208,76 +358,7 @@ let johnnie = new Baby('Johnnie', 1, 'Male', true);
 console.log(johnnie.printInfo())
 console.log(johnnie.isBabywalking())
 
-// -- JavaScript Closure -- //
-/*
-    A Closure is a self-invoking function that only runs once.
-    It can then set a variable(Which in our case will be a counter) and 
-    returns a function expression.
 
-    For this example, we will add to a number after the inital call to the closure has been made.
-
-    BTW JavaScript Closures are another type of variable that can be created.
-
-*/
-
-// [] + []
-
-// [] + {}
-
-// {} +[]
-
-// {} + {}
-
-// Array(16)
-
-// Array(16).join('js is weird' + 1)
-
-
-var my_num = 5
-
-var addNums = function () {
-    var insideNum = 6;
-    return my_num + insideNum;
-};
-
-console.dir(addNums)
-
-let newAdd = function(outer_var){
-
-    let innerAdd = function(inner_var){
-        return outer_var + inner_var;
-    };
-
-    return innerAdd;
-};
-
-let addFive = new newAdd(5);
-let addSix = new newAdd(6);
-
-console.dir(addFive);
-console.dir(addSix);
-
-console.log(addFive(3))
-
-
-let count_up = ( function() {
-    let counter = 0; // This will be our PRIVATE variable
-    console.log('Hit')
-    return function () { return counter++}
-}) ()
-
-let addNames = ( function () {
-    let names = [];
-    console.log('Adding Names')
-    return function (name){
-        console.log(names)
-        return names.push(name)
-    }
-})()
-
-console.log(addNames('Brandon'))
-console.log(addNames('Lydia'))
-console.log(addNames('Joel'))
 
 // Async JavaScript Section //
 
