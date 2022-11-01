@@ -2,13 +2,13 @@
 
 // Higher-Order Functions
     // Two functions…
-    // let total = 0, count = 1;
-    // while (count <= 10) {
-    //   total += count;
-    //   count += 1;
-    // }
-    // console.log(total);
-    // console.log(sum(range(1, 10)));
+// let total = 0, count = 1;
+// while (count <= 10) {
+//     total += count;
+//     count += 1;
+// }
+// console.log(total);
+// console.log(sum(range(1, 10)));
         // Which is more likely to have a bug?
         // Abstraction (still exists in FP!)- recipes as an example
         // EJS pg. 85
@@ -134,7 +134,7 @@ function getFactorialRecursively(n){
         return 1;
     }
     else{
-        return n * getFactorialRecursively(n-1);
+        return n * getFactorialRecursively(n - 1);
     }
 }
 
@@ -157,9 +157,11 @@ const factorial = (n) => {
 const recursiveFactorial = (n, accumulator) => {
     if (n <= 0) return accumulator;
 
-    return recursiveFactorial(n-1, n*accumulator);
+    return recursiveFactorial(n - 1, n*accumulator);
 }
 
 console.log(factorial(5))
 
 //! HW: Fibonacci 
+//* OR
+//! HW: Sum, but do it with a while loop, and then do it recursively
