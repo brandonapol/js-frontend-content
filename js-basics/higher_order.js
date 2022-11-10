@@ -62,7 +62,6 @@ const persons = [
     {firstname : "joel", lastname: "carter"},
     {firstname : "nicole", lastname: "shannon"}
 ];
-  
 
   
 function getFullName(item) {

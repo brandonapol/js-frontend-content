@@ -124,6 +124,12 @@ function getFactorialRecursively(n){
 
 console.log(getFactorialRecursively(5));
 
+function recursiveFactorial(n, accumulator) {
+    if (n <= 0) return accumulator;
+  
+    return recursiveFactorial(n-1, n*accumulator);
+  }
+
 // Objects and Arrays
 // 'data sets'
 // How data is stored in computer memory
@@ -141,7 +147,6 @@ let group_of_names = ['jerry','Ben', 'bAsh', 'Brock', 'Misty']
 // What if I want to get back just one of those values?
 // What is the mailing address?
 // Index for first position
-console.log('Brandon is here')
 console.log(group_of_names["jerry"]) // Doesn't work, doesn't make sense here
 console.log(group_of_names[0])
 
@@ -273,10 +278,10 @@ for(let i = 0; i < Object.keys(person2).length; i++){
 // [] + []
 
 // [] + {}
-
+ 
 // {} +[]
 
-// {} + {}
+// {} + {} 
 
 // Array(16)
 
@@ -416,7 +421,7 @@ const num_filter = (num) => {
 
 console.log(num_filter(input))
 
-// Async JavaScript Section //
+//! Async JavaScript Section //
 
 // -- JavaScript Callbacks -- //
 

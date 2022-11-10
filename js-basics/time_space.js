@@ -27,11 +27,11 @@ for (let i = 0; i < arr.length; i++) {
 let arr_copy = [...arr] // Linear time and linear space (both are O(n) )
 
 // Let's make it worse
-// for (let i = 0; i < arr.length; i++) {
-//     for (let j = 0; j < arr.length; j++) {
-//         console.log(`i is ${i}, j is ${j}`)
-//     }
-// } // This will run arr.length ** 2 times
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+        console.log(`i is ${i}, j is ${j}`)
+    }
+} // This will run arr.length ** 2 times
 // if arr.length is 5, it will run 25 times; if it's 5000, it will run 25,000,000 times, which is a lot
 
 // We could make it... EVEN WORSER but we won't because it can be a lot for your computer. Which is why we don't like to do it.
